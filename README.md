@@ -1,4 +1,4 @@
-# TicketingApi
+# TicketingApi StandAlone
 
 To use Vue:
 PS C:\Users\ADMIN\TicketingApp\TicketingApi\frontend> npm run build or npm run dev
