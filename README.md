@@ -33,3 +33,6 @@ info: Microsoft.Hosting.Lifetime[0]
 info: Microsoft.Hosting.Lifetime[0]
       Content root path: C:\Users\ADMIN\TicketingApp\TicketingApi
 info: Microsoft.Hosting.Lifetime[0]
+
+Image of FrontEnd 
+![op01](https://github.com/user-attachments/assets/8f822a76-623b-4bd4-8fa8-7f7dfb5b6e5b)
