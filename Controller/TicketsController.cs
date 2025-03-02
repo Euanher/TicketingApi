@@ -4,7 +4,7 @@ using TicketingApi.Models;  // Ensure models are referenced
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TicketingApi.Controller  // Corrected namespace to match folder structure
+namespace TicketingApi.Controller  
 {
     [Route("api/[controller]")]
     [ApiController]
