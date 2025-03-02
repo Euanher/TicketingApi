@@ -1,0 +1,116 @@
+< !DOCTYPE html >
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Ticketing Service</title>
+
+          <!-- Linking Vite App -->
+          <script type="module" src="/src/main.jsx"></script>
+
+          <!-- Linking Ticketing Service Styles -->
+          <link rel="stylesheet" href="styles.css">
+            <script defer src="script.js"></script>
+          </head>
+          <body>
+            <!-- Header with navigation links -->
+            <header>
+              <h1>Ticketing Service</h1>
+              <nav>
+                <ul>
+                  <li><a href="#create-ticket">Create Ticket</a></li>
+                  <li><a href="#view-tickets">View Tickets</a></li>
+                </ul>
+              </nav>
+            </header>
+
+            <main>
+              <!-- Section to create a new ticket -->
+              <section id="create-ticket">
+                <h2>Create New Ticket</h2>
+                <form id="ticket-form">
+                  <label for="title">Ticket Title:</label>
+                  <input type="text" id="title" name="title" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+
+                    <label for="priority">Priority:</label>
+                    <select id="priority" name="priority" required>
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                    </select>
+
+                    <button type="submit">Submit Ticket</button>
+                </form>
+              </section>
+
+              <!-- Section to display all tickets -->
+              <section id="view-tickets">
+                <h2>All Tickets</h2>
+                <div id="ticket-list">
+                  <p>No tickets available.</p>
+                </div>
+              </section>
+            </main>
+
+            <footer>
+              <p>&copy; 2025 Hard Work Pays Off #McCloud. All rights reserved.</p>
+            </footer>
+
+            <!-- Script to handle form submission and ticket display -->
+            <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ticketForm = document.getElementById("ticket-form");
+              const ticketList = document.getElementById("ticket-list");
+
+              // Mock array to simulate tickets in the system
+              let tickets = [];
+
+              // Function to display all tickets
+              function displayTickets() {
+                ticketList.innerHTML = '';
+              if (tickets.length === 0) {
+                ticketList.innerHTML = '<p>No tickets available.</p>';
+                } else {
+                tickets.forEach(ticket => {
+                  const ticketDiv = document.createElement("div");
+                  ticketDiv.innerHTML = ` 
+                            <h3>${ticket.title}</h3>
+                            <p><strong>Description:</strong> ${ticket.description}</p>
+                            <p><strong>Priority:</strong> ${ticket.priority}</p>
+                        `;
+                  ticketList.appendChild(ticketDiv);
+                });
+                }
+            }
+
+            // Handle ticket form submission
+            ticketForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+              const title = e.target.title.value;
+              const description = e.target.description.value;
+              const priority = e.target.priority.value;
+
+              // Create new ticket
+              const newTicket = {
+                title,
+                description,
+                priority
+              };
+
+              tickets.push(newTicket);
+
+              // Clear the form and refresh the ticket list
+              ticketForm.reset();
+              displayTickets();
+            });
+
+              // Initial display of tickets
+              displayTickets();
+        });
+            </script>
+          </body>
+        </html>

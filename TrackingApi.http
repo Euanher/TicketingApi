@@ -1,0 +1,51 @@
+@TicketingApi_HostAddress = http://localhost:4174
+
+### Get all tickets
+GET {{TicketingApi_HostAddress}}/api/tickets
+Accept: application/json
+
+###
+
+### Get ticket by ID (example: ID = 1)
+GET {{TicketingApi_HostAddress}}/api/tickets/1
+Accept: application/json
+
+###
+
+### Create a new ticket
+POST {{TicketingApi_HostAddress}}/api/tickets
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "New Ticket",
+  "description": "This is a test ticket.",
+  "status": "Open",
+  "assignedUser": {
+    "id": 3,
+    "name": "Alice Johnson",
+    "email": "alice@example.com"
+  }
+}
+
+###
+
+### Update an existing ticket (example: ID = 1)
+PUT {{TicketingApi_HostAddress}}/api/tickets/1
+Content-Type: application/json
+
+{
+  "title": "Updated Ticket Title",
+  "description": "Updated description",
+  "status": "In Progress",
+  "assignedUser": {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com"
+  }
+}
+
+###
+
+### Delete a ticket (example: ID = 1)
+DELETE {{TicketingApi_HostAddress}}/api/tickets/1
